@@ -26,7 +26,7 @@ var server = http.createServer(function (request, response) {
                 }
             });
             break;
-            case '/demo2.html':
+            case '/2020.05.23-18.45.47.glb':
                 fs.readFile(__dirname + path, function (error, data) {
                     if (error) {
                         response.writeHead(404);
@@ -41,6 +41,7 @@ var server = http.createServer(function (request, response) {
                     }
                 });
                 break;
+           
             case '/outfoxing.mp3':
                 fs.readFile(__dirname + path, function (error, data) {
                     if (error) {
@@ -56,6 +57,21 @@ var server = http.createServer(function (request, response) {
                     }
                 });
                 break;
+                case '/heli_1.wav':
+                    fs.readFile(__dirname + path, function (error, data) {
+                        if (error) {
+                            response.writeHead(404);
+                            response.write(error);
+                            response.end();
+                        } else {
+                            response.writeHead(200, {
+                                'Content-Type': 'audio/mpeg'
+                            });
+                            response.write(data);
+                            response.end();
+                        }
+                    });
+                    break;
             case '/obj.mtl':
                 fs.readFile(__dirname + path, function (error, data) {
                     if (error) {
